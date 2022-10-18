@@ -1,0 +1,48 @@
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useSearchParams} from "react-router-dom";
+
+import {movieActions} from "../../redux";
+import {MoviesListCard} from "../moviesListCard/MoviesListCard";
+import css from './MoviesList.module.css';
+
+function MoviesList() {
+
+    const [query, setQuery] = useSearchParams({page: '1'});
+    const page = query.get('page');
+
+
+    const {movies} = useSelector(state => state.movieReducer);
+    const {results} = movies;
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(movieActions.getAll({page}))
+    }, [page,dispatch])
+
+
+    const nextPage = () => {
+        setQuery(value => ({page: +value.get('page') + 1}))
+    }
+
+    const prevPage = () => {
+        setQuery(value => ({page: value.get('page') - 1}))
+    }
+
+    return (
+        <div className={css.wrap}>
+            {
+                results && results.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)
+            }
+            <div>
+                <button disabled={(+page === 1)} onClick={prevPage}>Prev page</button>
+                <button disabled={(+page === 500)}  onClick={nextPage}>Next page</button>
+            </div>
+
+        </div>
+
+    );
+}
+
+export {MoviesList};

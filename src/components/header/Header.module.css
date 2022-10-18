@@ -1,0 +1,58 @@
+.Header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Header input{
+    background:	#484848 ;
+}
+
+.Header button {
+    width: 10%;
+    height: 40px;
+    border: none;
+    color: darkblue;
+    font-family: system-ui;
+    font-size: 16px;
+    background:#484848;
+    color: snow;
+}
+
+.Header button:hover {
+    color: #ffaa00;
+    cursor: pointer;
+}
+
+.Header a {
+    text-decoration: none;
+}
+
+.wrap {
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    width: 100%;
+    background:	#202020 ;
+}
+
+#Header div {
+    background: #e1eaea;
+}
+
+#Header button {
+    background: #a3c2c2;
+    color: black;
+}
+
+#Header button:hover {
+    color: gold;
+}
+
+#Header input{
+    background: snow;
+}
+
+

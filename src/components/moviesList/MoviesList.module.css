@@ -1,0 +1,8 @@
+.wrap{
+    /*background: #9f1a1a;*/
+    width: 1000px;
+    row-gap: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

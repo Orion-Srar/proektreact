@@ -1,0 +1,45 @@
+.father{
+    margin: 10px;
+
+}
+
+.father img {
+    height: 350px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.wrap{
+    display: flex;
+    border-bottom: #838c8c dashed 2px;
+}
+
+.text {
+    margin: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    font: 1.1em "Fira Sans";
+}
+
+.name {
+    font-size: 1.3em;
+}
+
+.titleWrap {
+    display: flex;
+}
+
+.titleWrap span{
+    color: #838c8c;
+}
+
+.title {
+    width: 150px;
+}
+
+.overview {
+    font-size: 1.1em;
+    margin: 25px;
+}
+
