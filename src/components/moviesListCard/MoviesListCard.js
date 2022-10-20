@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 import StarRatings from "react-star-ratings/build/star-ratings";
 import Badge from "react-bootstrap/Badge";
-import {useSelector} from "react-redux";
 
 import {urls} from "../../configs";
 import css from './MoviesListCard.module.css'
@@ -13,14 +13,13 @@ function MoviesListCard({movie}) {
 
     const {title, poster_path, id, vote_average,genre_ids} = movie;
 
-
-    // const {name} = genresArray.find(value => value.id === genre_ids[0]);
+    const data = genresArray?.find(value => value.id === genre_ids[0]);
 
     const vote = ((vote_average * 6) / 10).toFixed(1)
 
     return (
         <div className={css.Card}>
-            {/*<Badge bg="secondary">{name}</Badge>*/}
+            {data && <Badge bg="secondary">{data.name}</Badge>}
             <Link to={'/movie/' + id}>
                 <div><img src={urls.img + poster_path} alt={title}/></div>
             </Link>

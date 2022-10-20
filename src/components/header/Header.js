@@ -1,59 +1,67 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 
 import css from './Header.module.css'
-import {genreActions} from "../../redux";
-import {Search} from "../search/Search";
+import {genreActions, movieActions} from "../../redux";
+import {SearchPage} from "../../pages";
 
 function Header() {
 
-    const navigate = useNavigate();
-
     const dispatch = useDispatch();
+
+    const [query, setQuery] = useSearchParams({with_genres: null});
+    const with_genres = query.get('with_genres');
 
     useEffect(() => {
         dispatch(genreActions.getAll())
     }, [])
+
+    useEffect(() => {
+        dispatch(movieActions.getAll({with_genres}))
+    }, [with_genres])
 
     const {genres} = useSelector(state => state.genreReducer);
     const {genres: genresArray} = genres;
 
     const change = () => {
 
-        const elementById = document.getElementById('MainLayout_MainLayout__B9Rqc')
-        const elementById2 = document.getElementById('MainLayout')
-        const header = document.getElementById('Header_Header__wWxCr');
-        const header1 = document.getElementById('Header');
+        const elementById = document.getElementById('MainLayout_mainLayout__lMTWi')
+        const elementById2 = document.getElementById('mainLayout')
+        const genre = document.getElementById('Header_genre__0cOBi');
+        const genre1 = document.getElementById('genre');
+        const wrap = document.getElementById('Header_wrap__icwLE');
+        const wrap1 = document.getElementById('wrap');
 
-        if (elementById){
-            elementById.id = 'MainLayout'
-            header.id = 'Header'
-        }else {
-            elementById2.id = 'MainLayout_MainLayout__B9Rqc'
-            header1.id = 'Header_Header__wWxCr'
+        if (elementById) {
+            elementById.id = 'mainLayout'
+            genre.id = 'genre'
+            wrap.id = 'wrap'
+
+        } else {
+            elementById2.id = 'MainLayout_mainLayout__lMTWi'
+            wrap1.id = 'Header_wrap__icwLE'
+            genre1.id = 'Header_genre__0cOBi'
         }
     }
 
 
     return (
-        <div className={css.Header} id={css.Header}>
-            <div className={css.wrap}>
-                <Link to={'/'}>
+        <div className={css.header}>
+            <div className={css.wrap} id={css.wrap}>
+                <Link onClick={window.location.reload} to={'/'}>
                     <div>MovieUA</div>
                 </Link>
-                <Search/>
-                <button onClick={change}>Click</button>
-                <div>
-                </div>
-            </div>
+                <SearchPage/>
+                <button onClick={change}>️🌞️🌛</button>
 
-            <div>
+            </div>
+            <div className={css.genre} id={css.genre}>
                 {
-                    genresArray && genresArray.map(genre => <button onClick={() => navigate(`/genre/${genre.id}`)}
-                                                                    key={genre.id}>{genre.name}</button>).splice(0, 10)
+                    genresArray && genresArray.map(genre => <button onClick={() => setQuery({with_genres: genre.id})} key={genre.id}>{genre.name}</button>).splice(0, 10)
                 }
             </div>
+
         </div>
     )
 }

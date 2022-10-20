@@ -1,17 +1,16 @@
 import {Route, Routes} from "react-router-dom";
+
 import {MainLayout} from "./layouts";
-import {GenreBadge, MovieInfo, MoviesList} from "./components";
+import {MovieInfoPage, MoviesListPage} from "./pages";
 
 function App() {
-
 
     return (
         <div>
             <Routes>
                 <Route path={'/'} element={<MainLayout/>} >
-                    <Route index element={<MoviesList/>}/>
-                    <Route path={'movie/:id'} element={<MovieInfo/>} />
-                    <Route path={'genre/:id'} element={<GenreBadge/>}/>
+                    <Route index element={<MoviesListPage/>}/>
+                    <Route path={'movie/:id'} element={<MovieInfoPage/>} />
                     <Route/>
                 </Route>
             </Routes>

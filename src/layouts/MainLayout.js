@@ -1,20 +1,16 @@
 import {Outlet} from "react-router-dom";
 
-import {Header} from "../components";
 import css from './MainLayout.module.css';
+import {HeaderPage} from "../pages";
 
 
 function MainLayout() {
 
     return (
-        <div className={css.MainLayout} id={css.MainLayout}>
+        <div className={css.mainLayout} id={css.mainLayout}>
 
-
-            <Header/>
+            <HeaderPage/>
             <Outlet/>
-
-
-
 
         </div>
     );

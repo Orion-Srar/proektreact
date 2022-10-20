@@ -15,11 +15,15 @@ function MoviesList() {
     const {movies} = useSelector(state => state.movieReducer);
     const {results} = movies;
 
+    const {searchMovie} = useSelector(state => state.movieReducer);
+    const {results: resultsSearch} = searchMovie;
+
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(movieActions.getAll({page}))
-    }, [page,dispatch])
+    }, [page, dispatch])
 
 
     const nextPage = () => {
@@ -30,14 +34,20 @@ function MoviesList() {
         setQuery(value => ({page: value.get('page') - 1}))
     }
 
+    const films = resultsSearch ? resultsSearch : results;
+
     return (
-        <div className={css.wrap}>
-            {
-                results && results.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)
-            }
+        <div className={css.father}>
+
+            <div className={css.wrap}>
+                {
+                    films && films.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)
+                }
+            </div>
+
             <div>
                 <button disabled={(+page === 1)} onClick={prevPage}>Prev page</button>
-                <button disabled={(+page === 500)}  onClick={nextPage}>Next page</button>
+                <button disabled={(+page === 500)} onClick={nextPage}>Next page</button>
             </div>
 
         </div>

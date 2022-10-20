@@ -1,30 +1,10 @@
-.Header {
-    width: 100%;
+.header {
+    width: 1000px;
     margin-bottom: 20px;
 }
 
-.Header input{
+.header input{
     background:	#484848 ;
-}
-
-.Header button {
-    width: 10%;
-    height: 40px;
-    border: none;
-    color: darkblue;
-    font-family: system-ui;
-    font-size: 16px;
-    background:#484848;
-    color: snow;
-}
-
-.Header button:hover {
-    color: #ffaa00;
-    cursor: pointer;
-}
-
-.Header a {
-    text-decoration: none;
 }
 
 .wrap {
@@ -38,21 +18,52 @@
     background:	#202020 ;
 }
 
-#Header div {
+.wrap a {
+    text-decoration: none;
+    color: #3d5c5c;
+    font-size: 40px;
+
+}
+
+.wrap button {
+    background: none;
+    border: none;
+    font-size: 20px;
+
+}
+
+#wrap{
     background: #e1eaea;
 }
 
-#Header button {
+#wrap input{
+    background: snow;
+}
+
+.genre button {
+    width: 10%;
+    height: 40px;
+    border: none;
+    font-family: system-ui;
+    font-size: 16px;
+    background:#484848;
+    color: snow;
+}
+
+.genre button:hover {
+    color: gold;
+    cursor: pointer;
+}
+
+#genre button {
     background: #a3c2c2;
     color: black;
 }
 
-#Header button:hover {
+#genre button:hover {
     color: gold;
 }
 
-#Header input{
-    background: snow;
-}
+
 
 

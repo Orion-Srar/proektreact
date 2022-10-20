@@ -1,35 +1,29 @@
 import {useForm} from "react-hook-form";
-
-import css from './Search.module.css';
 import {useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+
+import css from './Search.module.css';
 import {movieActions} from "../../redux";
 
 function Search() {
 
-    const [query, setQuery] = useSearchParams({with_keywords: ''});
-
-    const with_keywords = query.get('with_keywords')
+    const [query, setQuery] = useSearchParams({search: ''});
+    const search = query.get('search');
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(movieActions.getAll({with_keywords}))
-    }, [])
-
-
-
     const {reset, register, handleSubmit,} = useForm();
+
     const submit = (data) => {
         const {search} = data;
-        setQuery({with_keywords:search})
+        setQuery({search})
+        dispatch(movieActions.getSearch({search}))
         reset();
     }
 
     return (
         <form className={css.form} onSubmit={handleSubmit(submit)}>
-            <input type="text" placeholder={'Пошук'} {...register('search')} />
+            <input type="search" placeholder={'Пошук'} {...register('search')} />
         </form>
     );
 }

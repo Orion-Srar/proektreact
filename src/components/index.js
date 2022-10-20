@@ -1,4 +1,3 @@
-export * from './genreBadge/GenreBadge';
 export * from './header/Header';
 export * from './movieInfo/MovieInfo';
 export * from './moviesList/MoviesList';
