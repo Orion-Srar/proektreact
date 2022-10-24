@@ -1,9 +1,9 @@
-import {useForm} from "react-hook-form";
 import {useSearchParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useForm} from "react-hook-form";
+import {useDispatch} from "react-redux";
 
-import css from './Search.module.css';
 import {movieActions} from "../../redux";
+import css from './Search.module.css';
 
 function Search() {
 

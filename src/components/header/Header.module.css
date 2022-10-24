@@ -32,6 +32,10 @@
 
 }
 
+.wrap button {
+    cursor: pointer;
+}
+
 #wrap{
     background: #e1eaea;
 }
@@ -41,11 +45,10 @@
 }
 
 .genre button {
-    width: 10%;
-    height: 40px;
+    width: 11.111%;
+    height: 20px;
     border: none;
     font-family: system-ui;
-    font-size: 16px;
     background:#484848;
     color: snow;
 }

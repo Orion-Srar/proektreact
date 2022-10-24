@@ -1,16 +1,21 @@
-import {useSelector} from "react-redux";
+import StarRatings from "react-star-ratings/build/star-ratings";
 
-function StarsRating() {
+function StarsRating({movie}) {
 
-    const {movies} = useSelector(state => state.movieReducer);
-    const {results} = movies;
+    const {vote_average} = movie;
 
+    const vote = ((vote_average * 6) / 10).toFixed(1)
 
     return (
         <div>
-
-            StarsRating
-
+            <StarRatings
+                rating={+vote}
+                numberOfStars={6}
+                name='rating'
+                starRatedColor='gold'
+                starDimension="20px"
+                starSpacing="3px"
+            />
         </div>
     );
 }

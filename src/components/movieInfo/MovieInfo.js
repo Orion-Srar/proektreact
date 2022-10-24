@@ -1,10 +1,10 @@
+import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
 
+import css from './MovieInfo.module.css';
 import {movieActions} from "../../redux";
 import {urls} from "../../configs";
-import css from './MovieInfo.module.css';
 
 function MovieInfo() {
 
@@ -35,7 +35,7 @@ function MovieInfo() {
     return (
         <div className={css.father}>
             <div className={css.wrap}>
-                <div><img src={urls.img + poster_path} alt={title}/></div>
+                <div>{poster_path && <img src={urls.img + poster_path} alt={title}/>}</div>
                 <div className={css.text}>
                     <div className={css.name}>{title}</div>
                     <div className={css.titleWrap}>

@@ -1,10 +1,10 @@
-import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
+import {useEffect} from "react";
 
-import {movieActions} from "../../redux";
 import {MoviesListCard} from "../moviesListCard/MoviesListCard";
 import css from './MoviesList.module.css';
+import {movieActions} from "../../redux";
 
 function MoviesList() {
 

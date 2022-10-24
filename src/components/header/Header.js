@@ -1,10 +1,10 @@
+import {Link, useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {Link, useSearchParams} from "react-router-dom";
 
-import css from './Header.module.css'
+import {SearchPage, UserInfoPage} from "../../pages";
 import {genreActions, movieActions} from "../../redux";
-import {SearchPage} from "../../pages";
+import css from './Header.module.css'
 
 function Header() {
 
@@ -45,7 +45,6 @@ function Header() {
         }
     }
 
-
     return (
         <div className={css.header}>
             <div className={css.wrap} id={css.wrap}>
@@ -54,14 +53,15 @@ function Header() {
                 </Link>
                 <SearchPage/>
                 <button onClick={change}>️🌞️🌛</button>
+                <UserInfoPage/>
 
             </div>
             <div className={css.genre} id={css.genre}>
                 {
-                    genresArray && genresArray.map(genre => <button onClick={() => setQuery({with_genres: genre.id})} key={genre.id}>{genre.name}</button>).splice(0, 10)
+                    genresArray && genresArray.map(genre => <button onClick={() => setQuery({with_genres: genre.id})}
+                                                                    key={genre.id}>{genre.name}</button>).splice(0, 18)
                 }
             </div>
-
         </div>
     )
 }

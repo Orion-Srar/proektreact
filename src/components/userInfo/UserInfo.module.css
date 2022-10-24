@@ -1,0 +1,16 @@
+.UserInfo {
+    display: flex;
+    align-items: center;
+    font-family: system-ui
+
+}
+
+.UserInfo div {
+    margin-right: 5px;
+}
+
+.UserInfo img {
+    height: 32px;
+    width: 32px;
+    border-radius: 20px;
+}

@@ -5,8 +5,8 @@ const urls = {
     img: 'https://image.tmdb.org/t/p/w500',
     currentMovie: '/movie/',
     genre: '/genre/movie/list',
-    search: '/search/movie'
-
+    search: '/search/movie',
+    account: '/account'
 }
 
 export {
